@@ -1,0 +1,282 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 28px;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.backLink {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.backLink:hover {
+  transform: translateY(-2px);
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  overflow-x: auto;
+}
+
+.tabButton {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+}
+
+.tabButton:hover {
+  color: #833ab4;
+}
+
+.activeTab {
+  color: #833ab4;
+  font-weight: 600;
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  border-radius: 3px 3px 0 0;
+}
+
+.invitationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.invitationCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.invitationCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.invitationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.invitationHeader h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.invitationDate {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.invitationDetails {
+  margin-bottom: 20px;
+}
+
+.invitationDescription {
+  color: #4b5563;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.invitationMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.metaValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.invitationActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.acceptButton,
+.submitButton {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.rejectButton {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.viewButton {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.emptyStateIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.emptyState h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.emptyState p {
+  color: #6b7280;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #833ab4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.retryButton {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .invitationHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .invitationMeta {
+    grid-template-columns: 1fr;
+  }
+
+  .invitationActions {
+    flex-direction: column;
+  }
+}

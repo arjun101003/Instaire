@@ -1,0 +1,267 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 28px;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.backLink {
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.backLink:hover {
+  transform: translateY(-2px);
+}
+
+.campaignInfo {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.campaignInfo h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.campaignDescription {
+  color: #4b5563;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.campaignMeta {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.metaValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.form {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #1f2937;
+  background: #f9fafb;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.fileUpload {
+  position: relative;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.fileUpload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploadLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uploadLabel span {
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.uploadLabel small {
+  color: #6b7280;
+}
+
+.filePreview {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.filePreview h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.filePreview ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.filePreview li {
+  margin-bottom: 5px;
+  color: #4b5563;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.cancelButton {
+  padding: 12px 24px;
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submitButton {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #833ab4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.errorContainer {
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.backButton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+  }
+}

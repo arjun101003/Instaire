@@ -1,95 +1,157 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+
+import { useAuth } from "./components/AuthProvider"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
+import Link from "next/link"
+import { FaInstagram, FaRocket, FaUsers, FaChartLine } from "react-icons/fa"
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { user, loading } = useAuth()
+  const router = useRouter()
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    if (user && !loading) {
+      router.push("/dashboard")
+    }
+  }, [user, loading, router])
+
+  if (loading) {
+    return (
+      <div className="auth-container">
+        <div className="card">
+          <div style={{ textAlign: "center" }}>
+            <div className="gradient-text" style={{ fontSize: "24px" }}>
+              Loading...
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      {/* Hero Section */}
+      <section className="auth-container">
+        <div className="container">
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
+            <h1
+              style={{
+                fontSize: "4rem",
+                fontWeight: "900",
+                marginBottom: "24px",
+                lineHeight: "1.1",
+              }}
+              className="gradient-text"
+            >
+              Instaire
+            </h1>
+            <p
+              style={{
+                fontSize: "1.5rem",
+                color: "var(--text-muted)",
+                marginBottom: "40px",
+                lineHeight: "1.4",
+              }}
+            >
+              The luxury platform connecting influencers with premium brands for extraordinary collaborations
+            </p>
+
+            <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/auth/signin" className="btn btn-primary" style={{ fontSize: "18px", padding: "16px 32px" }}>
+                <FaRocket />
+                Get Started
+              </Link>
+              <button className="btn btn-secondary" style={{ fontSize: "18px", padding: "16px 32px" }}>
+                <FaChartLine />
+                View Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section style={{ padding: "100px 0", background: "var(--dark-surface)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+            <h2 style={{ fontSize: "3rem", fontWeight: "800", marginBottom: "16px" }} className="gradient-text">
+              Why Choose Instaire?
+            </h2>
+            <p style={{ fontSize: "1.2rem", color: "var(--text-muted)" }}>
+              Premium features for premium collaborations
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "30px",
+            }}
+          >
+            <div className="card">
+              <div style={{ fontSize: "3rem", marginBottom: "20px", color: "var(--primary-purple)" }}>
+                <FaInstagram />
+              </div>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "12px" }}>Instagram Integration</h3>
+              <p style={{ color: "var(--text-muted)" }}>
+                Seamlessly connect your Instagram account and automatically fetch your latest stats, engagement rates,
+                and content.
+              </p>
+            </div>
+
+            <div className="card">
+              <div style={{ fontSize: "3rem", marginBottom: "20px", color: "var(--primary-pink)" }}>
+                <FaUsers />
+              </div>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "12px" }}>Smart Matching</h3>
+              <p style={{ color: "var(--text-muted)" }}>
+                Our AI-powered algorithm matches influencers with brands based on audience, engagement, and content
+                style.
+              </p>
+            </div>
+
+            <div className="card">
+              <div style={{ fontSize: "3rem", marginBottom: "20px", color: "var(--accent-emerald)" }}>
+                <FaChartLine />
+              </div>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: "700", marginBottom: "12px" }}>Real-time Analytics</h3>
+              <p style={{ color: "var(--text-muted)" }}>
+                Track campaign performance with live metrics, engagement tracking, and detailed analytics dashboards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section style={{ padding: "100px 0" }}>
+        <div className="container">
+          <div className="card" style={{ textAlign: "center", background: "var(--gradient-primary)" }}>
+            <h2 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "16px", color: "white" }}>
+              Ready to Start Your Journey?
+            </h2>
+            <p style={{ fontSize: "1.2rem", marginBottom: "30px", color: "rgba(255,255,255,0.9)" }}>
+              Join thousands of influencers and brands already using Instaire
+            </p>
+            <Link
+              href="/auth/signin"
+              className="btn"
+              style={{
+                background: "white",
+                color: "var(--primary-purple)",
+                fontSize: "18px",
+                padding: "16px 32px",
+              }}
+            >
+              <FaRocket />
+              Join Instaire Today
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
